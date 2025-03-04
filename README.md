@@ -33,3 +33,5 @@ There are three directories in total, and the content of each directory is descr
 - `standalone_gpt.py` contains the implemetation of baseline `Standalone GPT` model.
 
 `new_privacy_reviews.csv` is the manually curated dataset containing 1,008 privacy-related app reviews, after using Sage on a dataset of 42,271 app reviews.
+
+`supplementary_material.pdf` provides supporting document for the paper.

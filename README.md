@@ -14,6 +14,7 @@ There are three directories in total, and the content of each directory is descr
 - `labeled_reviews.csv` is the ground truth dataset containing privacy or not-privacy labeled app reviews from the mental health domain.
 - `unlabeled_reviews.csv` is the unlabeled dataset containing 1 and 2-star rated app reviews from the mental health domain. We use this dataset to extract new privacy requirements-relevant reviews.
 - `sage_classified_reviews.csv` is the dataset extracted using our proposed SAGE approach.
+- `new_privacy_reviews.csv` is the manually curated dataset containing 748 privacy-related app reviews after using SAGE on a dataset of 42,271 app reviews.
 
 `docs`: additional supporting documents for our study.
 
@@ -31,7 +32,5 @@ There are three directories in total, and the content of each directory is descr
 - `svm.py` contains the implementation of baseline `SVM` classifier.
 - `t5.py` contains the implementation of the baseline `T5` classifier.
 - `standalone_gpt.py` contains the implementation of the baseline `Standalone GPT` model.
-
-`new_privacy_reviews.csv` is the manually curated dataset containing 1,008 privacy-related app reviews after using SAGE on a dataset of 42,271 app reviews.
 
 `supplementary_material.pdf` provides supporting material for the paper.

@@ -2,28 +2,28 @@
 
 We calculate pairwise Cohen's kappa coefficient and then take an average of it.
 
-#### Pair 1 cohen's kappa: 0.82
+#### Pair 1 cohen's kappa: 0.70
 
 | | | Annotator 1 ||
 | --- | --- | --- | --- |
 | | | yes | no |
-| **Annotator 2** | yes | 322 | 23 |
-| | no | 27 | 228 |
+| **Annotator 2** | yes | 231 | 23 |
+| | no | 27 | 104 |
 
-#### Pair 2 cohen's kappa: 0.83
-
-| | | Annotator 1 ||
-| --- | --- | --- | --- |
-| | | yes | no |
-| **Annotator 3** | yes | 372 | 28 |
-| | no | 17 | 183 |
-
-#### Pair 3 cohen's kappa: 0.81
+#### Pair 2 cohen's kappa: 0.76
 
 | | | Annotator 1 ||
 | --- | --- | --- | --- |
 | | | yes | no |
-| **Annotator 4** | yes | 227 | 26 |
-| | no | 16 | 185 |
+| **Annotator 3** | yes | 197 | 28 |
+| | no | 17 | 143 |
 
-#### **Average cohen's kappa: 0.82**
+#### Pair 3 cohen's kappa: 0.75
+
+| | | Annotator 1 ||
+| --- | --- | --- | --- |
+| | | yes | no |
+| **Annotator 4** | yes | 241 | 26 |
+| | no | 16 | 102 |
+
+#### **Average cohen's kappa: 0.74**

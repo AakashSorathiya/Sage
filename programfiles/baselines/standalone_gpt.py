@@ -13,45 +13,19 @@ gpt_model = 'gpt-4o-mini'
 
 openai.api_key = '<openai-api-key>'
 
-domain_specific_hypotheses = [
-    "User data being linked across different services.",
-    "Online user activities from various platforms can be connected.",
-    "Anonymized user data could be used to reveal their identity.",
-    "Unique digital user data could lead to personal identification.",
-    "User is unable to deny their online actions.",
-    "User is concerned about the permanent storage of their digital transactions.",
-    "User is concerned about others detecting their use of sensitive online services.",
-    "User presence on certain platforms could be discovered from anonymized data.",
-    "User device's communication patterns reveal private information.",
-    "User personal data intercepted during transmission.",
-    "Unauthorized access to user's private information.",
-    "The user is not aware of how and why their data is being collected, processed, stored, and shared.",
-    "The user is concerned about the processing or storing of their personal data against regulations or privacy policies.",
-    "The user is facing a privacy issue.",
-    "Personal user information is collected from other sources.",
-    "The user is concerned about protecting their personal data.",
-    "A data anonymity topic is discussed.",
-    "The app exposes a private aspect of the user life.",
-    "User data is being exploited for other purposes.",
-    "Data sharing with third parties is discussed.",
-    "A data privacy topic is discussed.",
-]
-
 def call_gpt_api(review):
     messages = [
         {
             'role': 'system',
-            'content': f'''You are a scholarly researcher and your task is to annotate the data. You will receive a list of app review and you have to annotate each review with a yes or no label based on the privacy hypothesis provided below. 
-If the review satisfies any of the hypothesis then annotate it with a yes label otherwise annotate it with a no label.
-Please remember the answer should be just one word, yes or no, don't add any extra text. If you don't know the answer just say undetermined but do not add any extra explaination.
-Privacy Hypotheses:
- - {'\n - '.join(domain_specific_hypotheses)}
+            'content': f'''You are provided with an app review of a mental health mobile application in this format:
+App Review: """content of the app review"""
+You have to identify whether it is discussing any privacy concern or not.
+Output should be just a yes or no label, where yes indicates that the review is related to privacy and no indicates that it is not related to privacy.
             '''
         },
         {
             'role': 'user',
-            'content': f'''App Review: {review}
-Does this app review satisfies any of the hypothesis? Respond with yes or no'''
+            'content': f'''App Review: """{review}"""'''
         }
     ]
     try:
@@ -59,7 +33,7 @@ Does this app review satisfies any of the hypothesis? Respond with yes or no'''
             model=gpt_model,
             messages=messages,
             max_tokens=1,
-            temperature=0.2,
+            temperature=0,
             logprobs=True
         )
         pred_label = response.choices[0].message.content.lower()

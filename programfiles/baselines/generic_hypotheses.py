@@ -96,17 +96,15 @@ def call_gpt_api(review):
     messages = [
         {
             'role': 'system',
-            'content': f'''You are a scholarly researcher and your task is to annotate the data. You will receive a list of app review and you have to annotate each review with a yes or no label based on the privacy hypothesis provided below. 
-If the review satisfies any of the hypothesis then annotate it with a yes label otherwise annotate it with a no label.
-Please remember the answer should be just one word, yes or no, don't add any extra text. If you don't know the answer just say undetermined but do not add any extra explaination.
-Privacy Hypotheses:
- - {'\n - '.join(generic_hypotheses)}
+            'content': f'''You are provided with an app review of a mental health mobile application in this format:
+App Review: """content of the app review"""
+You have to identify whether it is discussing any privacy concern or not.
+Output should be just a yes or no label, where yes indicates that the review is related to privacy and no indicates that it is not related to privacy.
             '''
         },
         {
             'role': 'user',
-            'content': f'''App Review: {review}
-Does this app review satisfies any of the hypothesis? Respond with yes or no'''
+            'content': f'''App Review: """{review}"""'''
         }
     ]
     try:
@@ -114,7 +112,7 @@ Does this app review satisfies any of the hypothesis? Respond with yes or no'''
             model=gpt_model,
             messages=messages,
             max_tokens=1,
-            temperature=0.2,
+            temperature=0,
             logprobs=True
         )
         pred_label = response.choices[0].message.content.lower()

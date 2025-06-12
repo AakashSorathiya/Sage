@@ -33,10 +33,6 @@ domain_specific_hypotheses = [
     "User is concerned about the processing and storage of mental health data against privacy regulations or policies.",
     "Mental health data is being exploited for other purposes.",
     "Mental health data is shared with third parties.",
-    "The user is facing a privacy issue.",
-    "The user is concerned about protecting their data.",
-    "A data anonymity topic is discussed.",
-    "A data privacy topic is discussed."
 ]
 
 def apply_heuristics(entailment_scores):
